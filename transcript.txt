@@ -65,3 +65,9 @@ So many kernels which one to choose ! Frankly speaking it up to use to decide . 
 Grid Search is basically as optimisation algorithm which uses the inputs and give the best performing combination based on cross validation .The working of grid search is shown in this figure.
 
 How to avoid overfitting? We can use Regularization parameter to find the balance between margin size and number of misclassification . We can use feature selection to remove redundant feature. Use techniques like k-fold cross-validation to assess the model's performance on different subsets of the data. And should be utmost careful with the kernel selection.
+
+So the main advantages of SVM are it have high accuracy and memory efficiency . 
+
+Now looking at the code of SVM . Here we have used train test split to split data into training and testing set and the svc model is initiated as follows and hyperparameter values are set and then the variables are fitting into it and the dot predict method is used to make prediction for the test dataset . One thing to not here is we need to encode categorical data  and normalize out data before using it with an SVM model.  
+
+And this the end of tutorial on SVM . Hope you gained some idea on what svms are and how they work . Thank you for your time 

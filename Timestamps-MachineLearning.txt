@@ -1,0 +1,29 @@
+Timestamps:
+00:13
+What is SVM?
+02:14
+Components of SVM 
+03:11
+Hard Margin Classifier
+04:50
+Soft Margin Classifier
+05:39
+Different types of SVMs
+05:41
+Linear SVM 
+06:08
+Non – Linear SVM 
+07:22
+Kernel Trick
+08:11
+Linear Kernel
+08:23
+Polynomial Kernel
+08:35
+RBF Kernel
+09:04
+Grid Search
+09:19
+Overfitting
+09:47
+Advantages of SVM

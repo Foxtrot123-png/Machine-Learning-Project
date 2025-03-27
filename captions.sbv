@@ -1,0 +1,116 @@
+0:00:00.000,0:00:23.029
+Hello, My name is Ritik R Mohapatra and this is tutorial on svm also known as support vector machines. What are they? So, according to Wikipedia support vector machines, unsupervised maximum margin models with associated learning algorithms that analyse data for classification and regression analysis 
+
+0:00:23.029,0:00:43.025
+I know that's a lot, so let me break down it for you. .So support vector machines are basically binary classifiers with a main aim  to maximize the margin around the decision boundary . with some changes, they can be used as multiclass classifiers and they can also be used in regression analysis.
+
+0:00:43.025,0:00:56.423
+ 
+Let's study them with an example so it would be a bit clearer, so here we have taken a breast cancer data set which I downloaded fron sklearn.datasets library.
+
+0:00:56.423,0:01:15.267
+This dataset contains the details of characteristics of the tumour. The tumour data contains all the characteristics of the tumour, such as mean perimeter, or the smoothness of the tumour and the target column tells us if the tumour is benign or malignant,
+
+0:01:15.267,0:01:24.250
+so let's do a 1 D plot the mean radius .I've taken a small sample of it and plotted it in a 1D space
+
+0:01:24.250,0:01:34.748
+here I can see 4 points and can also see that if the mean radius of a tumour is more than 21, it is classified as  malignant and if is less than 17, it is classified as benign
+
+0:01:34.748,0:01:55.378
+So if I take the mean between 17 and 21, which is around 19. and state a  hypothesis that if threshold is put up there and  if any point is less than that then the tumour is benign or else malignant
+
+0:01:55.378,0:02:12.374
+After adding the new point, we see the points is plotted to the left side of threshold so according to our hypothesis it should be a benign case of tumour and it is also. Congratulation our hypothesis is true and  we have also made our first SVM Classifier without even knowing it . Yay!
+
+0:02:12.441,0:02:24.439
+SVMs are defined by using support vectors .These are the one that have circles around them . They help in decising the decision boundary or in this case the threshold point .
+
+0:02:24.439,0:02:42.435
+Lets see how they look in 2D . 
+In this 2D figure the decision boundary is a 1D line . A point to note here . For a N Dimensional Plot the Decision boundary would be N-1 Dimensional.
+
+0:02:42.435,0:03:03.449
+Here another term is defined called Margin . Margin is the gap between decision boundary and the hyperplanes which are defined by the support vectors.
+ 
+Let's also to make our 1D plot of mean radius as a 2 D one!, one with the addition of new feature called mean texture. 
+
+0:03:03.449,0:03:20.161
+This 2D figure looks like this .
+ 
+Now going forward lets use  1 D figure as it is easier to analyse, so as before I'm mentioned the threshold value is equidistance from both the support vectors , which in turn maximises the margin and  gives us the maximum margin  classifier which also is known as hard margin classifier. 
+
+0:03:24.160,0:03:48.155
+The key thing to note in it is that, we assume  that the point linearly separable. 
+ 
+Now coming back to the hard margin classifier, we can define the decision line shown in the figure as an equation that is W dot X + B equal to 0 Where w is the normal vector to the plane, X the datapoint vector and b is the intercept value otherwise  known as bias.
+
+0:03:48.155,0:04:22.149
+So getting behind the math of the addition boundary we get the value k  which is the distance travelled by vector x to reach positive class that is equal to 1 by magnitude of w. So the final fomulation we get  is , the hard margin classifier tries to get the minimun of magnitude of w which in turn is maximization of margin as margin can be written as 2 by magnitude of w . The main problem with hard margin classifier is it is a do or die classifier either it works or not .
+
+0:04:43.144,0:04:50.443
+But in a real world scenario that is not the case points are not linear, then the saviour comes into play soft margin classifier.
+
+0:04:50.443,0:05:04.940
+It willingly introduces misclassification, just as to maintain the generalisation of the margin. Slack variables and a regularization parameter (C) to control the trade-off between margin and misclassification
+
+0:05:04.940,0:05:35.934
+Now lets go to the math behind it its equation look like this and here this term is the penalty term.Main Aim of Soft Margin:
+Minimizing the misclassification error
+Increasing the size of the margin.
+
+0:05:35.934,0:05:49.465
+Type of SVMs, so there are basically 2 type SVM.Linear SVM and Non linear SVM. These type classifier are best for the data which are linearly separable, which you have seen in hard classifier. 
+
+0:05:49.465,0:06:07.461
+As it is a 2-dimensional space, we can easily separate these two classes by using a straight line. But there can be multiple lines that can separate these classes. So which one to choose from , we have an answer, which is the 1 with the maximum margin.
+
+0:06:07.461,0:06:31.456
+So what if the data is non linear?If I try to fit a linear decision boundary to this non linear data then we get this.The decision boundary is misclassifying many points . So what to do ? We have 2 options either to add a new dimension or a new feature. 
+
+0:06:31.456,0:06:40.455
+Let's take the first scenario, adding a new feature, basically increases the dimensionality of the data set. Here we see, even if we increase the dimensionality of the dataset the problem still persists.
+
+0:06:40.455,0:06:50.453
+We do not have a particular decision boundary  that perfectly classifies the 2 classes even after so much computational power being used, so let's go to the next.
+
+0:06:50.453,0:07:02.450
+Adding a new feature which is a function of the previous 2 features. For example, let's take  a second degree function.We see that even after calculating and plotting this , it did not lead us anywhere . 
+
+0:07:02.450,0:07:14.448
+The computationaly power and the time went in vain . And in addition to it we do not know which degree or combination of polynomial would work? And computing it one by one manually is computationally expensive.
+
+0:07:14.448,0:07:16.448
+So what to do now ?.Mathematics is here for the rescue. We can make use of kernel tricks. A Kernel Trick instead of adding another dimension/feature, finds the similarity of the points.
+Instead of finding f(x,y) directly, it computes the similarity of the image of these points.
+
+0:07:16.448,0:08:05.438
+Rather than going through the definition  let's take an example. So here I have x = (x1, x2); y = (y1, y2) and a function f(x) defined like this and kernel defined as this . So if I take x as (1,2) and y as (1,2) the f(x) is this and f(y) is this . so this becomes 1+4+4+16 that is 25. So here a lot of algebra for mapping f from 2 D to 4 D.So if we try to use the Kernel then we directly get value 25.The same intuition can be done for a data to map it from a lower dimension to a higher dimension (may be infinite!!!)
+
+0:08:05.438,0:08:09.437
+There are many types of kernel. I would we discussing few which are important!
+
+0:08:09.437,0:08:19.435
+Linear Kernel 
+It is represented as a straight line or a hyperplane in higher dimension and it is used for text classification.
+
+0:08:19.435,0:08:35.465
+Polynomial Kernel
+It is used when datapoints are non linear in nature so the decision boundary becomes more complex . variable d is the degree of polynomial . The default value of d is sklearn in 3 . Mainly used in image recognition. 
+
+0:08:35.465,0:08:49.462
+RBF kernel :
+It has a formula like this where hyperparameter gamma defines how much cuvier the curve would be . More the gamma more the curvier the decision boundary would be .
+
+0:08:49.462,0:09:01.460
+So many kernels which one to choose ! Frankly speaking it up to use to decide . But if we want to compare the performance of different set of kernels of a set hyperparameters the we can use Grid Search
+
+0:09:01.460,0:09:16.457
+Grid Search is basically as optimixation algorithm which uses the inputs and give the best performing combination based on cross validation .The working of grid search is shown in this figure.
+
+0:09:16.457,0:09:44.451
+We can use Regularization parameter to find the balance between margin size and number of misclassification . We can use feture selection to remove redundant feature.Use techniques like k-fold cross-validation to assess the model's performance on different subsets of the data. And should be utmost careful with the kernel selection.
+
+0:09:57.449,0:09:59.448
+Do give a feedback!
+
